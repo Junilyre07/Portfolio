@@ -1,0 +1,63 @@
+Select *
+FROM CREDIT_CARD
+
+--Research question 1: What is the gender distribution among attrited customers?
+Select Gender, COUNT(Gender), Attrition_Flag
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY Gender, Attrition_Flag
+
+--Research question 2: What is the age distribution of attrited customers where the count exceeds 50
+Select Customer_Age,  COUNT(Customer_Age)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY Customer_Age
+HAVING COUNT(Customer_Age) > 50
+Order By COUNT(Customer_Age) DESC
+
+--Research Question 3: What income categories do attrited customers fall into, and what is the distribution within each category?
+Select INCOME_CATEGORY, COUNT(INCOME_CATEGORY)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY INCOME_CATEGORY
+ORDER BY COUNT(INCOME_CATEGORY) DESC
+
+--Research Question 4: What is the educational level distribution among attrited customers?
+
+Select EDUCATION_LEVEL, COUNT(EDUCATION_LEVEL)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY EDUCATION_LEVEL
+ORDER BY COUNT(EDUCATION_LEVEL) DESC
+
+--Research Question 5:What is the marital status distribution among attrited customers?
+
+Select MARITAL_STATUS, COUNT(MARITAL_STATUS)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY MARITAL_STATUS
+ORDER BY COUNT(MARITAL_STATUS) DESC
+
+--Research Question 6:What are the predominant card categories among attrited customers, and how do they vary?
+
+Select CARD_CATEGORY, COUNT(CARD_CATEGORY)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY CARD_CATEGORY
+ORDER BY COUNT(CARD_CATEGORY) DESC
+
+--Research Question 7:What is the average total revolving balance among attrited customers, and how does it differ across demographic groups?
+
+Select TOTAL_REVOLVING_BAL, COUNT(TOTAL_REVOLVING_BAL)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY TOTAL_REVOLVING_BAL
+ORDER BY COUNT(TOTAL_REVOLVING_BAL) DESC
+
+--Research Question 8:What is the average credit limit among attrited customers, and how does it differ across demographic groups?
+
+Select CREDIT_LIMIT, COUNT(CREDIT_LIMIT)
+FROM CREDIT_CARD
+WHERE Attrition_Flag = 'Attrited Customer'
+GROUP BY CREDIT_LIMIT
+ORDER BY COUNT(CREDIT_LIMIT) DESC
